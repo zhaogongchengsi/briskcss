@@ -1,7 +1,7 @@
 {
-  "name": "pkg-name",
-  "version": "0.0.0",
-  "description": "This is your project description.",
+  "name": "brisk-css",
+  "version": "0.0.1",
+  "description": "Lightning CSS CLI",
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
@@ -11,17 +11,20 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
+  "bin": {
+    "brisk": "./dist/cli.mjs"
+  },
   "packageManager": "pnpm@7.12.0",
   "keywords": [],
   "author": "zhaogongchengsi <zzhhaon@163.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/zhaogongchengsi",
-  "homepage": "https://github.com/zhaogongchengsi/pkg-name#readme",
+  "homepage": "https://github.com/zhaogongchengsi/briskcss#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhaogongchengsi/pkg-name.git"
+    "url": "git+https://github.com/zhaogongchengsi/briskcss.git"
   },
-  "bugs": "https://github.com/zhaogongchengsi/pkg-name/issues",
+  "bugs": "https://github.com/zhaogongchengsi/briskcss/issues",
   "sideEffects": false,
   "exports": {
     ".": {
@@ -52,5 +55,12 @@
     "typescript": "^4.9.5",
     "unbuild": "^1.1.1",
     "vitest": "^0.28.4"
+  },
+  "dependencies": {
+    "c12": "^1.4.2",
+    "citty": "^0.1.2",
+    "consola": "^3.2.3",
+    "lightningcss": "^1.21.5",
+    "pathe": "^1.1.1"
   }
 }
