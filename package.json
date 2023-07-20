@@ -58,8 +58,10 @@
   },
   "dependencies": {
     "c12": "^1.4.2",
+    "chokidar": "^3.5.3",
     "citty": "^0.1.2",
     "consola": "^3.2.3",
+    "glob": "^10.3.3",
     "lightningcss": "^1.21.5",
     "pathe": "^1.1.1"
   }

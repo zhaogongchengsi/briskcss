@@ -1,14 +1,21 @@
 import { defineCommand } from "citty";
 import { commonArgs } from "./args";
-import { loadConfig } from "c12";
+import { loadConfig } from "../config";
 
 export default defineCommand({
-  meta: { name: "dev", description: "Build an app" },
+  meta: { name: "dev", description: "Process css files and monitor file changes by default" },
   args: {
     ...commonArgs,
+    watch: {
+      alias: "w",
+      default: true,
+	  type: "boolean",
+	  description: "Whether to turn on file monitoring mode",
+    },
   },
   async run({ args }) {
-    const { config } = args;
+    const { config: configFile } = args;
+    const { config } = await loadConfig(configFile as string);
 
     console.log("dev config: ", config);
   },
