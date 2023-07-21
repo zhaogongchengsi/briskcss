@@ -4,8 +4,8 @@ import { parse } from "path";
 import { resolve } from "pathe";
 
 export async function scan(config: BriskCssConfig) {
-  const { cwd, entry } = config;
-  const cssFile = await glob(entry, {
+  const { cwd, inputDir } = config;
+  const cssFile = await glob(`${inputDir}/**/*.css`, {
     cwd,
     absolute: true,
   });

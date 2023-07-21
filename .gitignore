@@ -8,3 +8,5 @@ dist
 lib-cov
 logs
 node_modules
+example/style
+example/map

@@ -5,31 +5,18 @@ import { Features } from "lightningcss";
 export type Entry = string;
 
 export interface BriskCssConfig {
-  entry: Entry;
+  inputDir: string;
   outDir?: string;
+  mapDir?: string;
   cwd?: string;
+  // see: https://lightningcss.dev/docs.html
   lightning?: {
-    /** Whether to enable minification. */
     minify?: boolean;
-    /** The browser targets for the generated code. */
     targets?: Targets;
-    /**
-     * Whether to analyze `url()` dependencies.
-     * When enabled, `url()` dependencies are replaced with hashed placeholders
-     * that can be replaced with the final urls later (after bundling).
-     * Dependencies are returned as part of the result.
-     */
     analyzeDependencies?: boolean;
-    /**
-     * Whether to ignore invalid rules and declarations rather than erroring.
-     * When enabled, warnings are returned, and the invalid rule or declaration is
-     * omitted from the output code.
-     */
     errorRecovery?: boolean;
     drafts?: Drafts;
-    // Always compile colors and CSS nesting, regardless of browser targets.
     include?: Features;
-    // Never add any vendor prefixes, regardless of targets.
     exclude?: Features;
   };
 }
@@ -40,8 +27,9 @@ export async function loadConfig(configFile: string = "brisk.config.ts") {
     cwd,
     configFile: configFile!,
     defaultConfig: {
+      inputDir: "",
       cwd,
-      entry: "**/*.css",
+      mapDir: "map",
       outDir: "style",
       lightning: {
         minify: false,

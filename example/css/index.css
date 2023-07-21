@@ -1,5 +1,7 @@
 @import "_index.css";
 
+@custom-media --md (width > 1060px);
+
 body {
 	display: flex;
 	align-items: center;
@@ -14,10 +16,46 @@ body {
 	--background: #fff;
 	--color: #000;
 	font-family: sans-serif;
-	;
 }
 
 body:not(.dark) {
 	--color: #fff;
 	--background: #000000;
+}
+
+.title {
+	font-size: 30px;
+	color: #333;
+	margin: 100px 0;
+
+	@media (--md) {
+		.a {
+			color: green;
+		}
+	}
+}
+
+.foo {
+	color: color-mix(in hsl, hsl(120deg 10% 20%) 25%, hsl(30deg 30% 40%));
+	background-color: hwb(194 0% 0%);
+
+	&:is(:hover) {
+		color: aqua;
+
+		@media (--md) {
+			.a {
+				color: green;
+			}
+		}
+	}
+}
+
+.p:is(:first-child, .lead) {
+	margin-top: 0;
+}
+
+@media (--lg) {
+	.a {
+		color: green;
+	}
 }

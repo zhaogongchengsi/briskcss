@@ -1,0 +1,8 @@
+@import "_index.css";
+
+.a {
+	font-size: 10px;
+	@media (--lg) {
+		font-size: 20px;
+	}
+}

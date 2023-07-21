@@ -1,6 +1,8 @@
 import { defineCommand } from "citty";
 import { commonArgs } from "./args";
 import { loadConfig } from "../config";
+import { dev } from "../dev";
+import consola from "consola";
 
 export default defineCommand({
   meta: { name: "dev", description: "Process css files and monitor file changes by default" },
@@ -9,14 +11,14 @@ export default defineCommand({
     watch: {
       alias: "w",
       default: true,
-	  type: "boolean",
-	  description: "Whether to turn on file monitoring mode",
+      type: "boolean",
+      description: "Whether to turn on file monitoring mode",
     },
   },
   async run({ args }) {
     const { config: configFile } = args;
     const { config } = await loadConfig(configFile as string);
-
-    console.log("dev config: ", config);
+	consola.start("Start compilation");
+    await dev(config!);
   },
 });

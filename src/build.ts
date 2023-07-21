@@ -1,15 +1,20 @@
 import { BriskCssConfig } from "./config";
 import { scan } from "./scan";
-import { transform } from "./transform";
+import { convert } from "./transform";
 import { outputFile } from "fs-extra";
-import { join, parse } from "path";
+import { join, normalize, parse } from "pathe";
 
 export async function build(config: BriskCssConfig) {
   const css = await scan(config);
+  const inputDir = join(config.cwd!, config.inputDir);
+  const outDir = join(config.cwd!, config.outDir!);
 
-  for (const path of css) {
-    const { code } = await transform(path, config);
-    const { base } = parse(path);
-    await outputFile(join(config.cwd!, config.outDir!, base), code);
+  const result = await convert(css, config);
+
+  for (const { path, code } of result) {
+
+    const { base, dir } = parse(normalize(path).replace(inputDir, ""));
+
+    await outputFile(join(outDir, dir, base), code);
   }
 }

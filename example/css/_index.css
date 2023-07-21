@@ -1,7 +1,6 @@
-.w-10 {
-	width: 10px;
-}
 
-.h-screen {
-	height: 100vh;
+@custom-media --lg (width > 1660px);
+
+.a-css {
+	font-size: 10px;
 }
