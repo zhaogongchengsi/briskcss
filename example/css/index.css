@@ -31,6 +31,7 @@ body:not(.dark) {
 	@media (--md) {
 		.a {
 			color: green;
+			font-size: 10px;
 		}
 	}
 }
@@ -38,7 +39,8 @@ body:not(.dark) {
 .foo {
 	color: color-mix(in hsl, hsl(120deg 10% 20%) 25%, hsl(30deg 30% 40%));
 	background-color: hwb(194 0% 0%);
-
+	color: 10px;
+	
 	&:is(:hover) {
 		color: aqua;
 

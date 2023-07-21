@@ -3,6 +3,8 @@ import chokidar from "chokidar";
 import { transform } from "./transform";
 import { outputFile, remove } from "fs-extra";
 import { join, relative, parse } from "pathe";
+import consola from "consola";
+import { colors } from "consola/utils";
 
 export async function dev(config: BriskCssConfig) {
   const inputDir = join(config.cwd!, config.inputDir);
@@ -31,19 +33,27 @@ export async function dev(config: BriskCssConfig) {
     }
   };
 
+  const info = (message: string) => {
+    return colors.greenBright(message);
+  };
+
   watcher.on("add", (path) => {
+    consola.info(`Add new file: ${info(path)}`);
     build(path);
   });
 
   watcher.on("change", (path) => {
+    consola.info(`${info(path)} file change`);
     build(path);
   });
 
   watcher.on("unlink", (path) => {
+    consola.warn(`remove ${colors.red(path)}`);
     remove(join(outDir, path));
   });
 
   watcher.on("unlinkDir", (path) => {
+    consola.warn(`remove ${colors.red(path)}`);
     remove(join(outDir, path));
   });
 }
