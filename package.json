@@ -48,6 +48,7 @@
     "dist"
   ],
   "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.11.19",
     "bumpp": "^8.2.1",
     "esno": "^0.16.3",
@@ -61,6 +62,7 @@
     "chokidar": "^3.5.3",
     "citty": "^0.1.2",
     "consola": "^3.2.3",
+    "fs-extra": "^11.1.1",
     "glob": "^10.3.3",
     "lightningcss": "^1.21.5",
     "pathe": "^1.1.1"

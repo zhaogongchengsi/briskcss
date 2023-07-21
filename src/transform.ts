@@ -1,13 +1,12 @@
-import { transform as tf } from "lightningcss";
+import { bundle } from "lightningcss";
+import { BriskCssConfig } from "./config";
 
-export async function transform(path: string) {
-  const filename = "";
-  const css = Buffer.from(".foo { color: red }");
-
-  let { code, map } = tf({
-    filename,
-    code: css,
-    minify: true,
+export async function transform(path: string, config: BriskCssConfig) {
+  return bundle({
+    filename: path,
+    // code: css,
+    minify: false,
     sourceMap: true,
+    ...config.lightning,
   });
 }

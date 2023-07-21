@@ -1,6 +1,7 @@
 import { defineCommand } from "citty";
 import { commonArgs } from "./args";
 import { loadConfig } from "../config";
+import { build } from "../build";
 
 export default defineCommand({
   meta: { name: "build", description: "Working with css files" },
@@ -8,9 +9,9 @@ export default defineCommand({
     ...commonArgs,
   },
   async run({ args }) {
-	const { config: configFile } = args;
+    const { config: configFile } = args;
     const { config } = await loadConfig(configFile as string);
 
-    console.log("build config: ", config);
+    await build(config!);
   },
 });

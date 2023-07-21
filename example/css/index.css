@@ -1,0 +1,23 @@
+@import "_index.css";
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+:root {
+	--background: #fff;
+}
+
+body {
+	--background: #fff;
+	--color: #000;
+	font-family: sans-serif;
+	;
+}
+
+body:not(.dark) {
+	--color: #fff;
+	--background: #000000;
+}

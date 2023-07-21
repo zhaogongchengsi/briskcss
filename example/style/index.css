@@ -1,0 +1,28 @@
+.w-10 {
+  width: 10px;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+:root {
+  --background: #fff;
+}
+
+body {
+  --background: #fff;
+  --color: #000;
+  font-family: sans-serif;
+}
+
+body:not(.dark) {
+  --color: #fff;
+  --background: #000;
+}
