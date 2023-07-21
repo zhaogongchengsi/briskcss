@@ -1,6 +1,6 @@
 {
   "name": "brisk-css",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lightning CSS CLI",
   "scripts": {
     "build": "unbuild",
