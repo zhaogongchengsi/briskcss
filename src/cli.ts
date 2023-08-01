@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
 import { defineCommand, runMain } from "citty";
-import dev from "./commands/dev";
 import build from "./commands/build";
+import dev from "./commands/dev";
+import { loadConfig } from "./config";
+import consola from "consola";
 
 const main = defineCommand({
   meta: {
@@ -10,9 +12,10 @@ const main = defineCommand({
     version: "0.0.1",
     description: "Lightning CSS CLI",
   },
+
   subCommands: {
-    dev,
     build,
+    dev
   },
 });
 

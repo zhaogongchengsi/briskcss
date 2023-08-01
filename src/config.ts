@@ -9,6 +9,7 @@ export interface BriskCssConfig {
   outDir?: string;
   mapDir?: string;
   cwd?: string;
+  target?: string;
   // see: https://lightningcss.dev/docs.html
   lightning?: {
     minify?: boolean;
@@ -23,14 +24,16 @@ export interface BriskCssConfig {
 
 export async function loadConfig(configFile: string = "brisk.config.ts") {
   const cwd = process.cwd();
+
   return await lc<BriskCssConfig>({
     cwd,
     configFile: configFile!,
     defaultConfig: {
-      inputDir: "",
+      inputDir: "css",
       cwd,
       mapDir: "map",
       outDir: "style",
+      target: ">= 0.25%",
       lightning: {
         minify: false,
         analyzeDependencies: false,

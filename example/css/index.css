@@ -41,7 +41,7 @@ body:not(.dark) {
 	background-color: hwb(194 0% 0%);
 	color: 10px;
 	
-	&:is(:hover) {
+	&:is(:hover, :focus) {
 		color: aqua;
 
 		@media (--md) {
@@ -49,6 +49,10 @@ body:not(.dark) {
 				color: green;
 			}
 		}
+	}
+
+	p {
+		font-size: 10px;
 	}
 }
 

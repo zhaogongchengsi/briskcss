@@ -1,11 +1,16 @@
-import { bundle, Features } from "lightningcss";
+import { browserslistToTargets, bundle, Features } from "lightningcss";
 import { BriskCssConfig } from "./config";
+import browserslist from "browserslist";
 
 export async function transform(path: string, config: BriskCssConfig) {
+
+  let targets = browserslistToTargets(browserslist(config.target!));
+
   return bundle({
     filename: path,
     minify: false,
     sourceMap: true,
+    targets,
     include:
       Features.Colors |
       Features.Nesting |
@@ -27,3 +32,4 @@ export async function convert(paths: string[], config: BriskCssConfig) {
   }
   return css;
 }
+

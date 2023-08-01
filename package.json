@@ -58,6 +58,7 @@
     "vitest": "^0.28.4"
   },
   "dependencies": {
+    "browserslist": "^4.21.10",
     "c12": "^1.4.2",
     "chokidar": "^3.5.3",
     "citty": "^0.1.2",
