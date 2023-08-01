@@ -3,8 +3,6 @@
 import { defineCommand, runMain } from "citty";
 import build from "./commands/build";
 import dev from "./commands/dev";
-import { loadConfig } from "./config";
-import consola from "consola";
 
 const main = defineCommand({
   meta: {
